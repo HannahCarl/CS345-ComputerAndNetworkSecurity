@@ -8,6 +8,16 @@
 	-Main password cracker code
 3) password_hashes.txt
 	-Contains password hashes strings to be cracked
+    
+# To run:
+1) Use an IDE (ex. Eclipse) 
+2) Open project HW1-PasswordCracker
+3) Run 
+
+1) Open terminal
+2) cd into Folder HW1-PasswordCracker
+3) Use command ' javac passwordCracker.java'
+4) Use command 'java passwordCracker'
 
 # To add hashes to be cracked:
 1) open password_hashes.txt 
