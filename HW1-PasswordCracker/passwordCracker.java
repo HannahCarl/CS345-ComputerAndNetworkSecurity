@@ -44,6 +44,7 @@ public class passwordCracker {
     //Based on practice example code done in CS 360, SHAExample.java
 	public static String sha256Hash (String wordToHash) {
 		
+		
 		try {
 			MessageDigest md = MessageDigest.getInstance("SHA-256");
 			byte[] messageDigest = md.digest(wordToHash.getBytes());
@@ -334,7 +335,7 @@ public class passwordCracker {
 						for(int i=0; i < specialChar.length; i++) {
 							ruleTwoWord = specialChar[i] + ruleTwoNum;
 							hashedPassword = sha256Hash(ruleTwoWord);
-							//System.out.println(ruleTwoWord);
+							
 							for(int k = 0; k < pwList.size();k++) {
 								matchFound = checkPasswordMatches(hashedPassword, pwList.get(k), ruleTwoWord, crackPassFile);
 								if(matchFound) {
@@ -381,7 +382,7 @@ public class passwordCracker {
 						
 							ruleFourWord = "" + ruleFourNum;
 							hashedPassword = sha256Hash(ruleFourWord);
-							System.out.println(ruleFourWord);
+							//System.out.println(ruleFourWord);
 							for(int k = 0; k < pwList.size();k++) {
 								matchFound = checkPasswordMatches(hashedPassword, pwList.get(k), ruleFourWord, crackPassFile);
 								if(matchFound) {
@@ -403,11 +404,11 @@ public class passwordCracker {
 							ruleFourWordD = "" + formatRuleFourD.format(ruleFourNum);
 							ruleFourWordE = "" + formatRuleFourE.format(ruleFourNum);
 							
-							System.out.println(ruleFourWordA);
+							/*System.out.println(ruleFourWordA);
 							System.out.println(ruleFourWordB);
 							System.out.println(ruleFourWordC);
 							System.out.println(ruleFourWordD);
-							System.out.println(ruleFourWordE);
+							System.out.println(ruleFourWordE);*/
 							
 							//System.out.println(ruleTwoWord);
 							hashedPassword = sha256Hash(ruleFourWordA);
@@ -492,6 +493,7 @@ public class passwordCracker {
 			if(nextLine.indexOf(':') != -1) {
 				nextLine = nextLine.replaceAll("\\s+","");
 				nextLine = nextLine.replaceAll("}","");
+				nextLine = nextLine.toLowerCase();
 				String[] currLine = nextLine.split(":");
 				passwordList.add(currLine[1]);
 				//System.out.println(currLine[1]);
